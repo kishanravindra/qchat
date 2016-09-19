@@ -7,21 +7,93 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		813E29E91D7DCE28001CDD2A /* QImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813E29E81D7DCE28001CDD2A /* QImagePicker.swift */; };
+		813E29EB1D7DE282001CDD2A /* QConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813E29EA1D7DE282001CDD2A /* QConstant.swift */; };
+		813E29EF1D7E8C98001CDD2A /* Animated_logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 813E29EE1D7E8C98001CDD2A /* Animated_logo.gif */; };
+		813E2A001D7E9C70001CDD2A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 813E29FF1D7E9C70001CDD2A /* MBProgressHUD.m */; };
+		813E2A3C1D7EDC2B001CDD2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 813E2A3B1D7EDC2B001CDD2A /* GoogleService-Info.plist */; };
+		813E2A3E1D7FF321001CDD2A /* QChatListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813E2A3D1D7FF321001CDD2A /* QChatListController.swift */; };
+		813E2A411D801352001CDD2A /* QContactListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813E2A401D801352001CDD2A /* QContactListController.swift */; };
+		813E2A431D8017E8001CDD2A /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813E2A421D8017E8001CDD2A /* Users.swift */; };
+		813E2A471D8023D0001CDD2A /* QContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813E2A461D8023D0001CDD2A /* QContactCell.swift */; };
+		813E2A4B1D80395E001CDD2A /* QImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813E2A4A1D80395E001CDD2A /* QImageDownloader.swift */; };
+		813E2A531D894758001CDD2A /* QMessagesListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813E2A521D894758001CDD2A /* QMessagesListController.swift */; };
+		814417F81D8A86B600253639 /* SAMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 814417F71D8A86B600253639 /* SAMTextView.m */; };
+		814417FB1D8AB59100253639 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814417FA1D8AB59100253639 /* Messages.swift */; };
+		814417FD1D8ABA6D00253639 /* QChatListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814417FC1D8ABA6D00253639 /* QChatListCell.swift */; };
+		81A0E1541D7B4334006160BF /* QHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0E1531D7B4334006160BF /* QHelper.swift */; };
+		81A0E1581D7C1262006160BF /* QWelcomeProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0E1571D7C1262006160BF /* QWelcomeProfileController.swift */; };
+		81A0E1611D7D4063006160BF /* UIView+RVBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A0E1601D7D4063006160BF /* UIView+RVBorder.m */; };
 		81F534B41D79391D00523F6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F534B31D79391D00523F6D /* AppDelegate.swift */; };
-		81F534B61D79391D00523F6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F534B51D79391D00523F6D /* ViewController.swift */; };
 		81F534B91D79391D00523F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F534B71D79391D00523F6D /* Main.storyboard */; };
 		81F534BB1D79391D00523F6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81F534BA1D79391D00523F6D /* Assets.xcassets */; };
 		81F534BE1D79391D00523F6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81F534BC1D79391D00523F6D /* LaunchScreen.storyboard */; };
+		81F534C61D7939A500523F6D /* QLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F534C51D7939A500523F6D /* QLoginController.swift */; };
+		81F534D31D7952CB00523F6D /* NeoSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F534C81D7952CB00523F6D /* NeoSans-Black.ttf */; };
+		81F534D41D7952CB00523F6D /* NeoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F534C91D7952CB00523F6D /* NeoSans-Bold.ttf */; };
+		81F534D51D7952CB00523F6D /* NeoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F534CA1D7952CB00523F6D /* NeoSans-BoldItalic.ttf */; };
+		81F534D61D7952CB00523F6D /* NeoSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F534CB1D7952CB00523F6D /* NeoSans-ExtraLight.ttf */; };
+		81F534D71D7952CB00523F6D /* NeoSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F534CC1D7952CB00523F6D /* NeoSans-ExtraLightItalic.ttf */; };
+		81F534D81D7952CB00523F6D /* NeoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F534CD1D7952CB00523F6D /* NeoSans-Italic.ttf */; };
+		81F534D91D7952CB00523F6D /* NeoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F534CE1D7952CB00523F6D /* NeoSans-Light.ttf */; };
+		81F534DA1D7952CB00523F6D /* NeoSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F534CF1D7952CB00523F6D /* NeoSans-LightItalic.ttf */; };
+		81F534DB1D7952CB00523F6D /* NeoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F534D01D7952CB00523F6D /* NeoSans-Regular.ttf */; };
+		81F534DC1D7952CB00523F6D /* NeoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F534D11D7952CB00523F6D /* NeoSans-SemiBold.ttf */; };
+		81F534DD1D7952CB00523F6D /* NeoSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F534D21D7952CB00523F6D /* NeoSans-SemiBoldItalic.ttf */; };
+		81F534E11D7953C300523F6D /* LaunchVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 81F534E01D7953C300523F6D /* LaunchVideo.mp4 */; };
+		81F534E51D7954C800523F6D /* VideoCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F534E31D7954C800523F6D /* VideoCutter.swift */; };
+		81F534E61D7954C800523F6D /* VideoSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F534E41D7954C800523F6D /* VideoSplashViewController.swift */; };
+		81F904571D8D69CA00C29F50 /* QMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F904561D8D69CA00C29F50 /* QMessageCell.swift */; };
+		F98F7BC5243961FA9B3E95E6 /* Pods_QChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639C82197CF5282F637A9D20 /* Pods_QChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		81F534B01D79391D00523F6D /* QChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D74D4BA736BF070E38F2B14 /* Pods-QChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-QChat/Pods-QChat.release.xcconfig"; sourceTree = "<group>"; };
+		639C82197CF5282F637A9D20 /* Pods_QChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		813E29E81D7DCE28001CDD2A /* QImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QImagePicker.swift; path = HelperClass/QImagePicker.swift; sourceTree = "<group>"; };
+		813E29EA1D7DE282001CDD2A /* QConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QConstant.swift; sourceTree = "<group>"; };
+		813E29EE1D7E8C98001CDD2A /* Animated_logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Animated_logo.gif; sourceTree = "<group>"; };
+		813E29FE1D7E9C70001CDD2A /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Dependency/ProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
+		813E29FF1D7E9C70001CDD2A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = Dependency/ProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
+		813E2A3B1D7EDC2B001CDD2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		813E2A3D1D7FF321001CDD2A /* QChatListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QChatListController.swift; path = ViewController/ChatList/QChatListController.swift; sourceTree = "<group>"; };
+		813E2A401D801352001CDD2A /* QContactListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QContactListController.swift; path = ViewController/ContactList/QContactListController.swift; sourceTree = "<group>"; };
+		813E2A421D8017E8001CDD2A /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Users.swift; path = Models/Users.swift; sourceTree = "<group>"; };
+		813E2A461D8023D0001CDD2A /* QContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QContactCell.swift; path = ViewController/ContactList/QContactCell.swift; sourceTree = "<group>"; };
+		813E2A4A1D80395E001CDD2A /* QImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QImageDownloader.swift; path = HelperClass/QImageDownloader.swift; sourceTree = "<group>"; };
+		813E2A521D894758001CDD2A /* QMessagesListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QMessagesListController.swift; path = ViewController/MessageList/QMessagesListController.swift; sourceTree = "<group>"; };
+		814417F61D8A86B600253639 /* SAMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SAMTextView.h; path = Dependency/TextviewPlaceholder/SAMTextView.h; sourceTree = "<group>"; };
+		814417F71D8A86B600253639 /* SAMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SAMTextView.m; path = Dependency/TextviewPlaceholder/SAMTextView.m; sourceTree = "<group>"; };
+		814417FA1D8AB59100253639 /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Messages.swift; path = Models/Messages.swift; sourceTree = "<group>"; };
+		814417FC1D8ABA6D00253639 /* QChatListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QChatListCell.swift; path = ViewController/ChatList/QChatListCell.swift; sourceTree = "<group>"; };
+		81A0E1531D7B4334006160BF /* QHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QHelper.swift; path = HelperClass/QHelper.swift; sourceTree = "<group>"; };
+		81A0E1571D7C1262006160BF /* QWelcomeProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QWelcomeProfileController.swift; path = ViewController/WelcomeProfile/QWelcomeProfileController.swift; sourceTree = "<group>"; };
+		81A0E15E1D7D4062006160BF /* QChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		81A0E15F1D7D4063006160BF /* UIView+RVBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+RVBorder.h"; path = "Dependency/IBOutlet/UIView+RVBorder.h"; sourceTree = "<group>"; };
+		81A0E1601D7D4063006160BF /* UIView+RVBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+RVBorder.m"; path = "Dependency/IBOutlet/UIView+RVBorder.m"; sourceTree = "<group>"; };
+		81F534B01D79391D00523F6D /* qchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F534B31D79391D00523F6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81F534B51D79391D00523F6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		81F534B81D79391D00523F6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81F534BA1D79391D00523F6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81F534BD1D79391D00523F6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81F534BF1D79391D00523F6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81F534C51D7939A500523F6D /* QLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QLoginController.swift; path = ViewController/Login/QLoginController.swift; sourceTree = "<group>"; };
+		81F534C81D7952CB00523F6D /* NeoSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeoSans-Black.ttf"; path = "Resources/Fonts/NeoSans/NeoSans-Black.ttf"; sourceTree = "<group>"; };
+		81F534C91D7952CB00523F6D /* NeoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeoSans-Bold.ttf"; path = "Resources/Fonts/NeoSans/NeoSans-Bold.ttf"; sourceTree = "<group>"; };
+		81F534CA1D7952CB00523F6D /* NeoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeoSans-BoldItalic.ttf"; path = "Resources/Fonts/NeoSans/NeoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		81F534CB1D7952CB00523F6D /* NeoSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeoSans-ExtraLight.ttf"; path = "Resources/Fonts/NeoSans/NeoSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		81F534CC1D7952CB00523F6D /* NeoSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeoSans-ExtraLightItalic.ttf"; path = "Resources/Fonts/NeoSans/NeoSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		81F534CD1D7952CB00523F6D /* NeoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeoSans-Italic.ttf"; path = "Resources/Fonts/NeoSans/NeoSans-Italic.ttf"; sourceTree = "<group>"; };
+		81F534CE1D7952CB00523F6D /* NeoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeoSans-Light.ttf"; path = "Resources/Fonts/NeoSans/NeoSans-Light.ttf"; sourceTree = "<group>"; };
+		81F534CF1D7952CB00523F6D /* NeoSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeoSans-LightItalic.ttf"; path = "Resources/Fonts/NeoSans/NeoSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		81F534D01D7952CB00523F6D /* NeoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeoSans-Regular.ttf"; path = "Resources/Fonts/NeoSans/NeoSans-Regular.ttf"; sourceTree = "<group>"; };
+		81F534D11D7952CB00523F6D /* NeoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeoSans-SemiBold.ttf"; path = "Resources/Fonts/NeoSans/NeoSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		81F534D21D7952CB00523F6D /* NeoSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NeoSans-SemiBoldItalic.ttf"; path = "Resources/Fonts/NeoSans/NeoSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		81F534E01D7953C300523F6D /* LaunchVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = LaunchVideo.mp4; path = Resources/Video/LaunchVideo.mp4; sourceTree = "<group>"; };
+		81F534E31D7954C800523F6D /* VideoCutter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoCutter.swift; path = Dependency/SplashVideo/VideoCutter.swift; sourceTree = "<group>"; };
+		81F534E41D7954C800523F6D /* VideoSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoSplashViewController.swift; path = Dependency/SplashVideo/VideoSplashViewController.swift; sourceTree = "<group>"; };
+		81F904561D8D69CA00C29F50 /* QMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QMessageCell.swift; path = ViewController/MessageList/QMessageCell.swift; sourceTree = "<group>"; };
+		B244E6C73BEE4B137976093F /* Pods-QChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QChat/Pods-QChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,24 +101,132 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98F7BC5243961FA9B3E95E6 /* Pods_QChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A2E099A6EF0200D162A7B9C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B244E6C73BEE4B137976093F /* Pods-QChat.debug.xcconfig */,
+				5D74D4BA736BF070E38F2B14 /* Pods-QChat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		813E2A011D7E9C73001CDD2A /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				813E29FE1D7E9C70001CDD2A /* MBProgressHUD.h */,
+				813E29FF1D7E9C70001CDD2A /* MBProgressHUD.m */,
+			);
+			name = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		813E2A3F1D7FF329001CDD2A /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				813E2A3D1D7FF321001CDD2A /* QChatListController.swift */,
+			);
+			name = ChatList;
+			sourceTree = "<group>";
+		};
+		813E2A441D8017EC001CDD2A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				813E2A421D8017E8001CDD2A /* Users.swift */,
+				814417FA1D8AB59100253639 /* Messages.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		813E2A451D801DA8001CDD2A /* ContactList */ = {
+			isa = PBXGroup;
+			children = (
+				813E2A401D801352001CDD2A /* QContactListController.swift */,
+			);
+			name = ContactList;
+			sourceTree = "<group>";
+		};
+		813E2A541D894760001CDD2A /* MessageList */ = {
+			isa = PBXGroup;
+			children = (
+				813E2A521D894758001CDD2A /* QMessagesListController.swift */,
+			);
+			name = MessageList;
+			sourceTree = "<group>";
+		};
+		814417F91D8A86BA00253639 /* TextviewPlaceholder */ = {
+			isa = PBXGroup;
+			children = (
+				814417F61D8A86B600253639 /* SAMTextView.h */,
+				814417F71D8A86B600253639 /* SAMTextView.m */,
+			);
+			name = TextviewPlaceholder;
+			sourceTree = "<group>";
+		};
+		814417FE1D8ABA7800253639 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				813E2A461D8023D0001CDD2A /* QContactCell.swift */,
+				814417FC1D8ABA6D00253639 /* QChatListCell.swift */,
+				81F904561D8D69CA00C29F50 /* QMessageCell.swift */,
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
+		81A0E1551D7B455A006160BF /* Helper Class */ = {
+			isa = PBXGroup;
+			children = (
+				81A0E1531D7B4334006160BF /* QHelper.swift */,
+				813E29E81D7DCE28001CDD2A /* QImagePicker.swift */,
+				813E2A4A1D80395E001CDD2A /* QImageDownloader.swift */,
+			);
+			name = "Helper Class";
+			sourceTree = "<group>";
+		};
+		81A0E1561D7C1152006160BF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				81F534C51D7939A500523F6D /* QLoginController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		81A0E1591D7C12A1006160BF /* WelomeProfile */ = {
+			isa = PBXGroup;
+			children = (
+				81A0E1571D7C1262006160BF /* QWelcomeProfileController.swift */,
+			);
+			name = WelomeProfile;
+			sourceTree = "<group>";
+		};
+		81A0E1621D7D4067006160BF /* IBoutlet */ = {
+			isa = PBXGroup;
+			children = (
+				81A0E15F1D7D4063006160BF /* UIView+RVBorder.h */,
+				81A0E1601D7D4063006160BF /* UIView+RVBorder.m */,
+			);
+			name = IBoutlet;
+			sourceTree = "<group>";
+		};
 		81F534A71D79391D00523F6D = {
 			isa = PBXGroup;
 			children = (
 				81F534B21D79391D00523F6D /* QChat */,
 				81F534B11D79391D00523F6D /* Products */,
+				2A2E099A6EF0200D162A7B9C /* Pods */,
+				F159895CEA174EAB06956DD0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		81F534B11D79391D00523F6D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81F534B01D79391D00523F6D /* QChat.app */,
+				81F534B01D79391D00523F6D /* qchat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,13 +235,97 @@
 			isa = PBXGroup;
 			children = (
 				81F534B31D79391D00523F6D /* AppDelegate.swift */,
-				81F534B51D79391D00523F6D /* ViewController.swift */,
+				813E29EA1D7DE282001CDD2A /* QConstant.swift */,
+				81A0E15E1D7D4062006160BF /* QChat-Bridging-Header.h */,
 				81F534B71D79391D00523F6D /* Main.storyboard */,
+				81A0E1551D7B455A006160BF /* Helper Class */,
+				813E2A441D8017EC001CDD2A /* Models */,
+				81F534C71D7939B600523F6D /* Controllers */,
+				81F534E81D7954E500523F6D /* Dependency */,
 				81F534BA1D79391D00523F6D /* Assets.xcassets */,
+				81F534DF1D7952F700523F6D /* Resources */,
 				81F534BC1D79391D00523F6D /* LaunchScreen.storyboard */,
 				81F534BF1D79391D00523F6D /* Info.plist */,
+				813E2A3B1D7EDC2B001CDD2A /* GoogleService-Info.plist */,
 			);
 			path = QChat;
+			sourceTree = "<group>";
+		};
+		81F534C71D7939B600523F6D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				81A0E1561D7C1152006160BF /* Login */,
+				81A0E1591D7C12A1006160BF /* WelomeProfile */,
+				813E2A3F1D7FF329001CDD2A /* ChatList */,
+				813E2A451D801DA8001CDD2A /* ContactList */,
+				813E2A541D894760001CDD2A /* MessageList */,
+				814417FE1D8ABA7800253639 /* CustomCells */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		81F534DE1D7952E800523F6D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				81F534C81D7952CB00523F6D /* NeoSans-Black.ttf */,
+				81F534C91D7952CB00523F6D /* NeoSans-Bold.ttf */,
+				81F534CA1D7952CB00523F6D /* NeoSans-BoldItalic.ttf */,
+				81F534CB1D7952CB00523F6D /* NeoSans-ExtraLight.ttf */,
+				81F534CC1D7952CB00523F6D /* NeoSans-ExtraLightItalic.ttf */,
+				81F534CD1D7952CB00523F6D /* NeoSans-Italic.ttf */,
+				81F534CE1D7952CB00523F6D /* NeoSans-Light.ttf */,
+				81F534CF1D7952CB00523F6D /* NeoSans-LightItalic.ttf */,
+				81F534D01D7952CB00523F6D /* NeoSans-Regular.ttf */,
+				81F534D11D7952CB00523F6D /* NeoSans-SemiBold.ttf */,
+				81F534D21D7952CB00523F6D /* NeoSans-SemiBoldItalic.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		81F534DF1D7952F700523F6D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				813E29EE1D7E8C98001CDD2A /* Animated_logo.gif */,
+				81F534E21D7953CB00523F6D /* Video */,
+				81F534DE1D7952E800523F6D /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		81F534E21D7953CB00523F6D /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				81F534E01D7953C300523F6D /* LaunchVideo.mp4 */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		81F534E71D7954CD00523F6D /* SplashVideo */ = {
+			isa = PBXGroup;
+			children = (
+				81F534E31D7954C800523F6D /* VideoCutter.swift */,
+				81F534E41D7954C800523F6D /* VideoSplashViewController.swift */,
+			);
+			name = SplashVideo;
+			sourceTree = "<group>";
+		};
+		81F534E81D7954E500523F6D /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				814417F91D8A86BA00253639 /* TextviewPlaceholder */,
+				813E2A011D7E9C73001CDD2A /* ActivityIndicator */,
+				81A0E1621D7D4067006160BF /* IBoutlet */,
+				81F534E71D7954CD00523F6D /* SplashVideo */,
+			);
+			name = Dependency;
+			sourceTree = "<group>";
+		};
+		F159895CEA174EAB06956DD0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				639C82197CF5282F637A9D20 /* Pods_QChat.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +335,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81F534C21D79391D00523F6D /* Build configuration list for PBXNativeTarget "QChat" */;
 			buildPhases = (
+				CD25FAAF18BF03305AFA2DFC /* Check Pods Manifest.lock */,
 				81F534AC1D79391D00523F6D /* Sources */,
 				81F534AD1D79391D00523F6D /* Frameworks */,
 				81F534AE1D79391D00523F6D /* Resources */,
+				40F2B039E6695E93F38B10C8 /* Embed Pods Frameworks */,
+				F3DD1A9F100DF5AE249CC822 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -81,7 +348,7 @@
 			);
 			name = QChat;
 			productName = QChat;
-			productReference = 81F534B01D79391D00523F6D /* QChat.app */;
+			productReference = 81F534B01D79391D00523F6D /* qchat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -96,6 +363,7 @@
 				TargetAttributes = {
 					81F534AF1D79391D00523F6D = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = QX47DR8CLT;
 					};
 				};
 			};
@@ -123,20 +391,100 @@
 			buildActionMask = 2147483647;
 			files = (
 				81F534BE1D79391D00523F6D /* LaunchScreen.storyboard in Resources */,
+				81F534D41D7952CB00523F6D /* NeoSans-Bold.ttf in Resources */,
 				81F534BB1D79391D00523F6D /* Assets.xcassets in Resources */,
+				81F534DC1D7952CB00523F6D /* NeoSans-SemiBold.ttf in Resources */,
+				81F534E11D7953C300523F6D /* LaunchVideo.mp4 in Resources */,
+				81F534D91D7952CB00523F6D /* NeoSans-Light.ttf in Resources */,
+				81F534DA1D7952CB00523F6D /* NeoSans-LightItalic.ttf in Resources */,
+				81F534D51D7952CB00523F6D /* NeoSans-BoldItalic.ttf in Resources */,
+				81F534D61D7952CB00523F6D /* NeoSans-ExtraLight.ttf in Resources */,
+				81F534D81D7952CB00523F6D /* NeoSans-Italic.ttf in Resources */,
+				81F534D31D7952CB00523F6D /* NeoSans-Black.ttf in Resources */,
+				81F534DB1D7952CB00523F6D /* NeoSans-Regular.ttf in Resources */,
+				813E2A3C1D7EDC2B001CDD2A /* GoogleService-Info.plist in Resources */,
+				81F534DD1D7952CB00523F6D /* NeoSans-SemiBoldItalic.ttf in Resources */,
+				813E29EF1D7E8C98001CDD2A /* Animated_logo.gif in Resources */,
+				81F534D71D7952CB00523F6D /* NeoSans-ExtraLightItalic.ttf in Resources */,
 				81F534B91D79391D00523F6D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		40F2B039E6695E93F38B10C8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QChat/Pods-QChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD25FAAF18BF03305AFA2DFC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F3DD1A9F100DF5AE249CC822 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QChat/Pods-QChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		81F534AC1D79391D00523F6D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81F534B61D79391D00523F6D /* ViewController.swift in Sources */,
+				813E2A531D894758001CDD2A /* QMessagesListController.swift in Sources */,
+				814417FB1D8AB59100253639 /* Messages.swift in Sources */,
+				813E2A411D801352001CDD2A /* QContactListController.swift in Sources */,
+				81F534E51D7954C800523F6D /* VideoCutter.swift in Sources */,
+				813E29EB1D7DE282001CDD2A /* QConstant.swift in Sources */,
+				814417F81D8A86B600253639 /* SAMTextView.m in Sources */,
+				814417FD1D8ABA6D00253639 /* QChatListCell.swift in Sources */,
+				813E2A4B1D80395E001CDD2A /* QImageDownloader.swift in Sources */,
 				81F534B41D79391D00523F6D /* AppDelegate.swift in Sources */,
+				813E2A3E1D7FF321001CDD2A /* QChatListController.swift in Sources */,
+				81A0E1581D7C1262006160BF /* QWelcomeProfileController.swift in Sources */,
+				813E2A471D8023D0001CDD2A /* QContactCell.swift in Sources */,
+				81A0E1611D7D4063006160BF /* UIView+RVBorder.m in Sources */,
+				81F534C61D7939A500523F6D /* QLoginController.swift in Sources */,
+				81A0E1541D7B4334006160BF /* QHelper.swift in Sources */,
+				81F904571D8D69CA00C29F50 /* QMessageCell.swift in Sources */,
+				813E2A431D8017E8001CDD2A /* Users.swift in Sources */,
+				813E2A001D7E9C70001CDD2A /* MBProgressHUD.m in Sources */,
+				81F534E61D7954C800523F6D /* VideoSplashViewController.swift in Sources */,
+				813E29E91D7DCE28001CDD2A /* QImagePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +528,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Darshan Puttannaiah (PT2R4GC68D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Darshan Puttannaiah (PT2R4GC68D)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -202,6 +551,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "0c331f1c-78c5-4af5-873c-82caa801599f";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -226,7 +576,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Darshan Puttannaiah (PT2R4GC68D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Darshan Puttannaiah (PT2R4GC68D)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -241,6 +592,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "0c331f1c-78c5-4af5-873c-82caa801599f";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -249,23 +601,38 @@
 		};
 		81F534C31D79391D00523F6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B244E6C73BEE4B137976093F /* Pods-QChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Darshan Puttannaiah (PT2R4GC68D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Darshan Puttannaiah (PT2R4GC68D)";
 				INFOPLIST_FILE = QChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qwinixtech.QChat;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qwinixtech.qchat;
+				PRODUCT_NAME = qchat;
+				PROVISIONING_PROFILE = "0c331f1c-78c5-4af5-873c-82caa801599f";
+				SWIFT_OBJC_BRIDGING_HEADER = "QChat/QChat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		81F534C41D79391D00523F6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D74D4BA736BF070E38F2B14 /* Pods-QChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Darshan Puttannaiah (PT2R4GC68D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Darshan Puttannaiah (PT2R4GC68D)";
 				INFOPLIST_FILE = QChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qwinixtech.QChat;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qwinixtech.qchat;
+				PRODUCT_NAME = qchat;
+				PROVISIONING_PROFILE = "0c331f1c-78c5-4af5-873c-82caa801599f";
+				SWIFT_OBJC_BRIDGING_HEADER = "QChat/QChat-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -288,6 +655,7 @@
 				81F534C41D79391D00523F6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

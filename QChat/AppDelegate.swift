@@ -7,16 +7,25 @@
 //
 
 import UIKit
-
+import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let lagFreeField: UITextField = UITextField()
+        self.window?.addSubview(lagFreeField)
+        lagFreeField.becomeFirstResponder()
+        lagFreeField.resignFirstResponder()
+        lagFreeField.removeFromSuperview()
         return true
+    }
+    
+    override init() {
+        super.init()
+        FIRApp.configure()
     }
 
     func applicationWillResignActive(application: UIApplication) {

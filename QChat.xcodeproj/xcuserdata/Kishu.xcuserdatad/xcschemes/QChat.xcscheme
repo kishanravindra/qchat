@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81F534AF1D79391D00523F6D"
-               BuildableName = "QChat.app"
+               BuildableName = "qchat.app"
                BlueprintName = "QChat"
                ReferencedContainer = "container:QChat.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81F534AF1D79391D00523F6D"
-            BuildableName = "QChat.app"
+            BuildableName = "qchat.app"
             BlueprintName = "QChat"
             ReferencedContainer = "container:QChat.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81F534AF1D79391D00523F6D"
-            BuildableName = "QChat.app"
+            BuildableName = "qchat.app"
             BlueprintName = "QChat"
             ReferencedContainer = "container:QChat.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81F534AF1D79391D00523F6D"
-            BuildableName = "QChat.app"
+            BuildableName = "qchat.app"
             BlueprintName = "QChat"
             ReferencedContainer = "container:QChat.xcodeproj">
          </BuildableReference>
