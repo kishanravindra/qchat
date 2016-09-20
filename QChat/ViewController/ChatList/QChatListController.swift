@@ -51,6 +51,7 @@ class QChatListController: UIViewController {
     //In this method, we will fetch message related to current user.
     //We use a "usermesssage" DB reference, from there we fetch the id's of message
     //then we pass to id to fetchMessageRelatedToUserConversation method.Which in terms fetch's all the message related to user, with refernce od message id.
+    var timer:NSTimer?
     func checkUserMessages()
     {
         guard let uid = FIRAuth.auth()?.currentUser?.uid else {
@@ -76,14 +77,22 @@ class QChatListController: UIViewController {
                             return message1.timeStamp?.intValue > message2.timeStamp?.intValue
                         })
                     }
-                    //this will crash because of background thread, so lets call this on dispatch_async main thread
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.chatListTable.reloadData()
-                    })
+                    //Scheduling tableview to reload only once.
+                    self.timer?.invalidate()
+                    self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(QChatListController.reloadTheChatList), userInfo: nil, repeats: false)
                 }
             }, withCancelBlock: nil)
             
         }, withCancelBlock: nil)
+    }
+    
+    //MARK:- reload table
+    func reloadTheChatList(){
+        //this will crash because of background thread, so lets call this on dispatch_async main thread
+        dispatch_async(dispatch_get_main_queue(), {
+            print("load")
+            self.chatListTable.reloadData()
+        })
     }
     
     //MARK:- moving from QChatListVc to QMessagesListVc
