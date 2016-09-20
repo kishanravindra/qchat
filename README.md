@@ -1,4 +1,3 @@
-# qchat
 <p align="center">
-  <img src="http://imgur.com/a/BNCV0" alt="qchat by kishan ravindra"/>
+  <img src="http://i.imgur.com/3ntD7VR.png" alt="qchat by kishan ravindra"/>
 </p>
