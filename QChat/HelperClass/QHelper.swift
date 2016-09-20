@@ -42,6 +42,12 @@ class QHelper: NSObject {
         return dateFormat.stringFromDate(timeAndDate)
     }
     
+    func calculateCollectionCellHeightForText(text: String) -> CGRect {
+        //width is 200,which we specified in autolayout and we will give random height
+        let size = CGSize(width: 200, height: 1000)
+        return NSString(string: text).boundingRectWithSize(size, options: NSStringDrawingOptions.UsesFontLeading.union(.UsesLineFragmentOrigin), attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15)], context: nil)
+    }
+    
     //MARK:-Method to display the activity Indicator
     func showActivityIndicator(controller:UIViewController,inidicatorText:String)
     {

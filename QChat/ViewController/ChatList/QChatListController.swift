@@ -19,9 +19,7 @@ class QChatListController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         checkIfUserIsLoggedIn()
-        QHelper.sharedHelper.showActivityIndicator(self, inidicatorText:"Accessing your messages...")
     }
-    
     
     //Checking whether user is logged Into app or not, if not. We will logout the user
     func checkIfUserIsLoggedIn(){
@@ -59,10 +57,8 @@ class QChatListController: UIViewController {
             QHelper.sharedHelper.hideActivityIndicator(self)
             return
         }
-        
         let userMessageRef = FIRDatabase.database().reference().child(kUserMessages).child(uid)
         userMessageRef.observeEventType(.ChildAdded, withBlock: { (messageResult) in
-            
             let messageId = messageResult.key
             let messagesReference = FIRDatabase.database().reference().child(kMessages).child(messageId)
             
@@ -73,34 +69,24 @@ class QChatListController: UIViewController {
                     self.starterInfoLabel.hidden = true
                     let messages = Messages()
                     messages.setValuesForKeysWithDictionary(messageChatDict)
-                    
-                    if let receiverUserId = messages.receiverId {
+                    if let receiverUserId = messages.checkForFromId() {
                         self.messagesOfIndividualUser[receiverUserId] = messages
                         self.messagesList = Array(self.messagesOfIndividualUser.values)
                         self.messagesList.sortInPlace({ (message1, message2) -> Bool in
                             return message1.timeStamp?.intValue > message2.timeStamp?.intValue
                         })
                     }
-                    
                     //this will crash because of background thread, so lets call this on dispatch_async main thread
                     dispatch_async(dispatch_get_main_queue(), {
                         self.chatListTable.reloadData()
                     })
                 }
-                else
-                {
-                    if self.messagesList.count == 0
-                    {
-                        self.starterInfoLabel.hidden = true
-                        self.view.bringSubviewToFront(self.starterInfoLabel)
-                    }
-                }
-                }, withCancelBlock: nil)
-            
             }, withCancelBlock: nil)
+            
+        }, withCancelBlock: nil)
     }
     
-    //MARK:- moving from QChatListVc to QMessagesListVc 
+    //MARK:- moving from QChatListVc to QMessagesListVc
     func selectedUserForChat(user:Users){
         performSegueWithIdentifier("ShowChatRoom", sender: user)
     }
@@ -153,7 +139,6 @@ extension QChatListController:UITableViewDelegate,UITableViewDataSource{
         guard let messgedUserId = selectedUser.checkForFromId() else {
             return
         }
-        print(messgedUserId)
         let userMessageRef = FIRDatabase.database().reference().child(kUser).child(messgedUserId)
         userMessageRef.observeSingleEventOfType(.Value, withBlock:
         { (result) in
@@ -167,3 +152,4 @@ extension QChatListController:UITableViewDelegate,UITableViewDataSource{
         }, withCancelBlock: nil)
     }
 }
+

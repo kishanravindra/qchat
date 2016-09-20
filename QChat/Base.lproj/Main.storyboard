@@ -18,6 +18,7 @@
             <string>TitilliumWeb-Regular</string>
             <string>TitilliumWeb-Regular</string>
             <string>TitilliumWeb-Regular</string>
+            <string>TitilliumWeb-Regular</string>
         </mutableArray>
         <mutableArray key="NeoSans-SemiBold.ttf">
             <string>TitilliumWeb-SemiBold</string>
@@ -305,16 +306,6 @@
                                     <constraint firstAttribute="bottom" secondItem="Mfm-nj-Ks0" secondAttribute="bottom" constant="5" id="wmM-Ct-zpL"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh Oh!, It seems you not started the converstion with anyone yet..Hurry up!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKC-Pa-g0b">
-                                <rect key="frame" x="20" y="299" width="335" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="14U-1j-oK5"/>
-                                    <constraint firstAttribute="width" constant="335" id="1Ag-8V-GsW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="17"/>
-                                <color key="textColor" red="0.89019607840000003" green="0.1450980392" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IPH-jP-dDE">
                                 <rect key="frame" x="0.0" y="74" width="375" height="593"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -442,6 +433,16 @@
                                     <outlet property="delegate" destination="kCW-mZ-fcg" id="m71-pV-HuK"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh Oh!, It seems you not started the converstion with anyone yet..Hurry up!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKC-Pa-g0b">
+                                <rect key="frame" x="20" y="299" width="335" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="14U-1j-oK5"/>
+                                    <constraint firstAttribute="width" constant="335" id="1Ag-8V-GsW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="17"/>
+                                <color key="textColor" red="0.89019607840000003" green="0.1450980392" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -597,45 +598,113 @@
                                     <constraint firstAttribute="height" constant="2" id="rvc-xb-0ZL"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="63y-ly-fPi">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="63y-ly-fPi">
                                 <rect key="frame" x="0.0" y="74" width="375" height="546"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mWP-tb-eCE">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="375" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="0Sl-3L-s2Z" customClass="QMessageCell" customModule="qchat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="10" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fbg-5r-TDZ">
-                                                    <rect key="frame" x="175" y="0.0" width="200" height="80"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhW-xk-GF3" userLabel="outMessage Bg View">
+                                                    <rect key="frame" x="167" y="0.0" width="200" height="90"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLf-Mt-418">
+                                                            <rect key="frame" x="10" y="0.0" width="188" height="90"/>
+                                                            <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="15"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.96470588239999999" green="0.25882352939999997" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="1PD-jw-id4"/>
-                                                        <constraint firstAttribute="width" constant="200" id="7qe-iz-saM"/>
+                                                        <constraint firstItem="BLf-Mt-418" firstAttribute="leading" secondItem="ZhW-xk-GF3" secondAttribute="leading" constant="10" id="Fq0-rO-AYc"/>
+                                                        <constraint firstAttribute="trailing" secondItem="BLf-Mt-418" secondAttribute="trailing" constant="2" id="S7Z-up-aQT"/>
+                                                        <constraint firstItem="BLf-Mt-418" firstAttribute="top" secondItem="ZhW-xk-GF3" secondAttribute="top" id="btE-g7-Auj"/>
+                                                        <constraint firstAttribute="bottom" secondItem="BLf-Mt-418" secondAttribute="bottom" id="nt3-WA-OEq"/>
+                                                        <constraint firstAttribute="height" constant="90" id="pfW-kQ-kv4"/>
+                                                        <constraint firstAttribute="width" constant="200" id="rie-YJ-iQD"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yL2-Vr-AoH">
+                                                    <rect key="frame" x="5" y="60" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="NC1-Bc-t68"/>
+                                                        <constraint firstAttribute="height" constant="30" id="wG2-Xy-eE7"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" red="0.38039215686274508" green="0.086274509803921567" blue="0.3843137254901961" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bov-qW-6GR" userLabel="InComingView">
+                                                    <rect key="frame" x="40" y="0.0" width="128" height="90"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcQ-AB-1sg">
+                                                            <rect key="frame" x="10" y="0.0" width="116" height="90"/>
+                                                            <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="15"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="CcQ-AB-1sg" firstAttribute="leading" secondItem="Bov-qW-6GR" secondAttribute="leading" constant="10" id="6sh-2m-8rm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="CcQ-AB-1sg" secondAttribute="trailing" constant="2" id="7t5-1H-3Do"/>
+                                                        <constraint firstAttribute="width" constant="128" id="Ld2-yX-Z4j"/>
+                                                        <constraint firstAttribute="bottom" secondItem="CcQ-AB-1sg" secondAttribute="bottom" id="n5Y-QA-p4g"/>
+                                                        <constraint firstItem="CcQ-AB-1sg" firstAttribute="top" secondItem="Bov-qW-6GR" secondAttribute="top" id="vup-QR-6ZH"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.96470588239999999" green="0.25882352939999997" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="Fbg-5r-TDZ" firstAttribute="top" secondItem="0Sl-3L-s2Z" secondAttribute="top" id="VsY-Av-8D4"/>
-                                            <constraint firstAttribute="bottom" secondItem="Fbg-5r-TDZ" secondAttribute="bottom" id="hox-bz-2MN"/>
-                                            <constraint firstAttribute="trailing" secondItem="Fbg-5r-TDZ" secondAttribute="trailing" id="qox-Qf-ZuN"/>
+                                            <constraint firstAttribute="bottom" secondItem="yL2-Vr-AoH" secondAttribute="bottom" id="3cH-2p-KZS"/>
+                                            <constraint firstItem="Bov-qW-6GR" firstAttribute="leading" secondItem="yL2-Vr-AoH" secondAttribute="trailing" constant="5" id="9EM-qP-lC9"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZhW-xk-GF3" secondAttribute="bottom" id="RRH-DN-rY8"/>
+                                            <constraint firstItem="Bov-qW-6GR" firstAttribute="top" secondItem="0Sl-3L-s2Z" secondAttribute="top" id="Sg2-Up-dTt"/>
+                                            <constraint firstItem="ZhW-xk-GF3" firstAttribute="top" secondItem="0Sl-3L-s2Z" secondAttribute="top" id="bLk-s2-HKk"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZhW-xk-GF3" secondAttribute="trailing" constant="8" id="cOw-lj-83J"/>
+                                            <constraint firstItem="yL2-Vr-AoH" firstAttribute="leading" secondItem="0Sl-3L-s2Z" secondAttribute="leading" constant="5" id="ilS-Ws-ghO"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bov-qW-6GR" secondAttribute="bottom" id="pp5-q1-Ju0"/>
                                         </constraints>
-                                        <size key="customSize" width="375" height="80"/>
+                                        <size key="customSize" width="375" height="90"/>
                                         <connections>
-                                            <outlet property="messageTextView" destination="Fbg-5r-TDZ" id="THp-HP-mhN"/>
+                                            <outlet property="incomingCellViewWidth" destination="Ld2-yX-Z4j" id="DgF-w7-xvu"/>
+                                            <outlet property="incomingMessagesLabel" destination="CcQ-AB-1sg" id="qQW-TT-4o5"/>
+                                            <outlet property="incomingmessageBgView" destination="Bov-qW-6GR" id="sga-Px-jb4"/>
+                                            <outlet property="outgoingCellViewWidth" destination="rie-YJ-iQD" id="m1A-ND-TEE"/>
+                                            <outlet property="outgoingMessagesLabel" destination="BLf-Mt-418" id="qWN-sk-JMB"/>
+                                            <outlet property="outgoingmessageBgView" destination="ZhW-xk-GF3" id="M3v-ZO-3y8"/>
+                                            <outlet property="profileImage" destination="yL2-Vr-AoH" id="ABM-cG-0qN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -820,7 +889,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.94117647058823528" green="0.16078431372549021" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.25882352939999997" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="QSi-rd-ItP" firstAttribute="top" secondItem="VgH-C9-LRe" secondAttribute="bottom" constant="25" id="34c-g8-1g6"/>
                             <constraint firstItem="P6w-NU-NXD" firstAttribute="centerX" secondItem="qXh-aZ-MCB" secondAttribute="centerX" id="G0p-lN-7iu"/>

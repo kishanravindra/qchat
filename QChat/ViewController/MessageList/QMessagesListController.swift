@@ -46,7 +46,8 @@ class QMessagesListController: UIViewController,UITextViewDelegate {
     }
     
     //MARK:- Send Button Action
-    @IBAction func messageSendBtnPressed(sender: AnyObject) {
+    @IBAction func messageSendBtnPressed(sender: AnyObject)
+    {
                 let messageRef = FIRDatabase.database().reference().child(kMessages)
                 //Generating unique id for each message, which user sends.
                 let messagechildIdRef = messageRef.childByAutoId()
@@ -70,6 +71,9 @@ class QMessagesListController: UIViewController,UITextViewDelegate {
                     
                     let receiverUserMessagesRef = FIRDatabase.database().reference().child(kUserMessages).child(receiverUserId)
                     receiverUserMessagesRef.updateChildValues([messageId: 1])
+                    
+                    self.inputMessageTextField.text = ""
+                    self.moveMessageInputTextfieldToOriginalPosition()
                 }
     }
     
@@ -109,8 +113,10 @@ class QMessagesListController: UIViewController,UITextViewDelegate {
                 //potential of crashing if keys don't match
                 message.setValuesForKeysWithDictionary(dictionary)
                 
-                if message.checkForFromId() == self.user?.id {
+                if message.checkForFromId() == self.user?.id
+                {
                     self.messages.append(message)
+                    
                     dispatch_async(dispatch_get_main_queue(), {
                         self.messagesCollectionView?.reloadData()
                         let indexPath = NSIndexPath(forItem: self.messages.count - 1, inSection: 0)
@@ -133,24 +139,36 @@ extension QMessagesListController:UICollectionViewDataSource,UICollectionViewDel
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! QMessageCell
         let messageData = messages[indexPath.item]
-        cell.messageTextView.text = messageData.messageText
+        if let image = user?.profileImageUrl{
+            cell.profileImage.loadImageUsingCacheWithUrlString(image)
+        }
+        cell.messageChats = messageData
         return cell
     }
     
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 80)
+    //MARK:- CollectionViewCell height
+    //In this method, we are setting the height of the cell, according to the message text length.
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        var cellHeight:CGFloat = 90 //default height specified in storyboard
+        if let messageString = messages[indexPath.item].messageText
+        {
+            cellHeight = QHelper.sharedHelper.calculateCollectionCellHeightForText(messageString).height + 20
+        }
+        return CGSize(width: view.frame.width, height: cellHeight)
     }
 }
 
-
 extension QMessagesListController{
+    
     func setUpInitialNavBar(){
         inputMessageTextField.textAlignment = .Left
-
         inputMessageTextField.placeholder = "Type a message"
         selectedUserName.text = user?.name
     selectedUserProfileImage.loadImageUsingCacheWithUrlString(user!.profileImageUrl!)
+        
+        messagesCollectionView.alwaysBounceVertical = true
+        messagesCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 5, 0)//Giving space to bottom of collectionview
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
@@ -175,6 +193,16 @@ extension QMessagesListController{
     func handleKeyboardWillHide(notification: NSNotification) {
         chatViewBottonConstraint?.constant = 0
         UIView.animateWithDuration(0.1) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func moveMessageInputTextfieldToOriginalPosition(){
+        chatViewBottonConstraint?.constant = 0
+        UIView.animateWithDuration(0.1) {
+            self.inputTextHeightConstriant.constant = 35
+            self.chatViewHeightConstraint.constant =  45
+            self.inputMessageTextField.resignFirstResponder()
             self.view.layoutIfNeeded()
         }
     }
