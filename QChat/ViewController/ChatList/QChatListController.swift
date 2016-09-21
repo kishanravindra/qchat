@@ -59,30 +59,39 @@ class QChatListController: UIViewController {
             return
         }
         let userMessageRef = FIRDatabase.database().reference().child(kUserMessages).child(uid)
-        userMessageRef.observeEventType(.ChildAdded, withBlock: { (messageResult) in
-            let messageId = messageResult.key
-            let messagesReference = FIRDatabase.database().reference().child(kMessages).child(messageId)
+        userMessageRef.observeEventType(.ChildAdded, withBlock: { (userResult) in
             
-            messagesReference.observeSingleEventOfType(.Value, withBlock: { (result) in
-                
-                if let messageChatDict = result.value as? [String: AnyObject]
-                {
-                    self.starterInfoLabel.hidden = true
-                    let messages = Messages()
-                    messages.setValuesForKeysWithDictionary(messageChatDict)
-                    if let receiverUserId = messages.checkForFromId() {
-                        self.messagesOfIndividualUser[receiverUserId] = messages
-                        self.messagesList = Array(self.messagesOfIndividualUser.values)
-                        self.messagesList.sortInPlace({ (message1, message2) -> Bool in
-                            return message1.timeStamp?.intValue > message2.timeStamp?.intValue
-                        })
-                    }
-                    //Scheduling tableview to reload only once.
-                    self.timer?.invalidate()
-                    self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(QChatListController.reloadTheChatList), userInfo: nil, repeats: false)
+            let userId = userResult.key //fetch userId from UserMessage DB first and we will pass id to fetch particular messageId
+            FIRDatabase.database().reference().child(kUserMessages).child(uid).child(userId).observeEventType(.ChildAdded, withBlock:
+                { (messageResult) in
+                    let messageId = messageResult.key
+                    self.fetchMessages(messageId)
+                }, withCancelBlock: nil)
+        }, withCancelBlock: nil)
+    }
+    
+    //MARK:- fetch messages
+    private func fetchMessages(idOfMessage:String){
+        let messagesReference = FIRDatabase.database().reference().child(kMessages).child(idOfMessage)
+        
+        messagesReference.observeSingleEventOfType(.Value, withBlock: { (result) in
+            
+            if let messageChatDict = result.value as? [String: AnyObject]
+            {
+                self.starterInfoLabel.hidden = true
+                let messages = Messages()
+                messages.setValuesForKeysWithDictionary(messageChatDict)
+                if let receiverUserId = messages.checkForFromId() {
+                    self.messagesOfIndividualUser[receiverUserId] = messages
+                    self.messagesList = Array(self.messagesOfIndividualUser.values)
+                    self.messagesList.sortInPlace({ (message1, message2) -> Bool in
+                        return message1.timeStamp?.intValue > message2.timeStamp?.intValue
+                    })
                 }
-            }, withCancelBlock: nil)
-            
+                //Scheduling tableview to reload only once.
+                self.timer?.invalidate()
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(QChatListController.reloadTheChatList), userInfo: nil, repeats: false)
+            }
         }, withCancelBlock: nil)
     }
     

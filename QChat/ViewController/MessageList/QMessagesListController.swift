@@ -17,6 +17,7 @@ class QMessagesListController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var inputMessageTextField: SAMTextView!
     @IBOutlet weak var chatActionView: UIView!
     @IBOutlet weak var messagesCollectionView: UICollectionView!
+    
    
     //NSLayoutConstraint
     @IBOutlet weak var chatViewBottonConstraint: NSLayoutConstraint!
@@ -64,12 +65,12 @@ class QMessagesListController: UIViewController,UITextViewDelegate {
                         return
                     }
                     
-                    let senderUserMessagesRef = FIRDatabase.database().reference().child(kUserMessages).child(senderUserId)
+                    let senderUserMessagesRef = FIRDatabase.database().reference().child(kUserMessages).child(senderUserId).child(receiverUserId)
                     
                     let messageId = messagechildIdRef.key
                     senderUserMessagesRef.updateChildValues([messageId: 1])
                     
-                    let receiverUserMessagesRef = FIRDatabase.database().reference().child(kUserMessages).child(receiverUserId)
+                    let receiverUserMessagesRef = FIRDatabase.database().reference().child(kUserMessages).child(receiverUserId).child(senderUserId)
                     receiverUserMessagesRef.updateChildValues([messageId: 1])
                     
                     self.inputMessageTextField.text = ""
@@ -93,11 +94,11 @@ class QMessagesListController: UIViewController,UITextViewDelegate {
     //MARK:- Load messages
     //Fetch and load message conversation b/w current user and selected user
     func loadMessageConversation(){
-        guard let currentUserId = FIRAuth.auth()?.currentUser?.uid else{
+        guard let currentUserId = FIRAuth.auth()?.currentUser?.uid,receiverId = user?.id else{
             return
         }
         
-        let userMessagesRef = FIRDatabase.database().reference().child(kUserMessages).child(currentUserId)
+        let userMessagesRef = FIRDatabase.database().reference().child(kUserMessages).child(currentUserId).child(receiverId)
         userMessagesRef.observeEventType(.ChildAdded, withBlock:
         { (messageResult) in
             
@@ -112,21 +113,21 @@ class QMessagesListController: UIViewController,UITextViewDelegate {
                 let message = Messages()
                 //potential of crashing if keys don't match
                 message.setValuesForKeysWithDictionary(dictionary)
-                
-                if message.checkForFromId() == self.user?.id
-                {
-                    self.messages.append(message)
-                    
-                    dispatch_async(dispatch_get_main_queue(), {
+                print("Messages:",message.messageText)
+                self.messages.append(message)
+                dispatch_async(dispatch_get_main_queue(),
+                    {
                         self.messagesCollectionView?.reloadData()
                         let indexPath = NSIndexPath(forItem: self.messages.count - 1, inSection: 0)
                         self.messagesCollectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
                     })
-                }
+                
                 
             }, withCancelBlock: nil)
         }, withCancelBlock:nil)
     }
+    
+
 }
 
 
@@ -157,6 +158,7 @@ extension QMessagesListController:UICollectionViewDataSource,UICollectionViewDel
         }
         return CGSize(width: view.frame.width, height: cellHeight)
     }
+    
 }
 
 extension QMessagesListController{
@@ -165,7 +167,7 @@ extension QMessagesListController{
         inputMessageTextField.textAlignment = .Left
         inputMessageTextField.placeholder = "Type a message"
         selectedUserName.text = user?.name
-    selectedUserProfileImage.loadImageUsingCacheWithUrlString(user!.profileImageUrl!)
+        selectedUserProfileImage.loadImageUsingCacheWithUrlString(user!.profileImageUrl!)
         
         messagesCollectionView.alwaysBounceVertical = true
         messagesCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 5, 0)//Giving space to bottom of collectionview
@@ -206,4 +208,5 @@ extension QMessagesListController{
             self.view.layoutIfNeeded()
         }
     }
+    
 }
