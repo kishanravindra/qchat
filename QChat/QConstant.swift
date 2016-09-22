@@ -14,6 +14,7 @@ let BASE_URL = "https://qchat-1d9e9.firebaseio.com/"
 //DB REFERENCE KEYS
 let kUser = "users"
 let kMessages = "messages"
-let kUserMessages = "usermessages"
+let kUserMessages = "userMessages"
+let kUserImages = "userImages"
 
 let kTermsAndConditionStatus = "TermsAndCondition"

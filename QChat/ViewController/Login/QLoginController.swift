@@ -26,6 +26,7 @@ class QLoginController:VideoSplashViewController,UITextFieldDelegate,MFMailCompo
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //Checking whether user accepted terms and condition. If he/she already accepte,then move to QHomeVc ,else Login
+        print(FIRAuth.auth()?.currentUser?.uid)
         moveToChatListVc()
     }
     

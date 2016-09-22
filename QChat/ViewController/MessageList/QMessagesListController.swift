@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class QMessagesListController: UIViewController,UITextViewDelegate {
+class QMessagesListController: UIViewController,UITextViewDelegate,chatImagePickerHelperDelegate{
     
      //IBOutlets
     @IBOutlet weak var selectedUserProfileImage: UIImageView!
@@ -23,10 +23,12 @@ class QMessagesListController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var chatViewBottonConstraint: NSLayoutConstraint!
     @IBOutlet weak var chatViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var inputTextHeightConstriant: NSLayoutConstraint!
+    @IBOutlet weak var attachmentBgViewWidth: NSLayoutConstraint!
     
     var user: Users?
     var messages = [Messages]()
-
+    var isAttachmentBtnTapped = false
+    var chatImagePicker: QChatImageUploader?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +82,70 @@ class QMessagesListController: UIViewController,UITextViewDelegate {
     
     //MARK:- Attachment Button Pressed
     @IBAction func attachmentBtnPressed(sender: AnyObject) {
+         changeAttachmentBgViewConstantToZero()
     }
+    
+    
+    //MARK:- attachment Different actions(camera,gallery,video,voice & location)
+    
+    @IBAction func attachmentOptionSelected(sender: UIButton) {
+        
+        switch sender.tag {
+        case 10:
+            print("camera")
+            checkIfImagePickerPresent()
+            if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera))
+            {
+                chatImagePicker = QChatImageUploader(lSelectedController: self, chatImageDelagate: self, andSelectedSource: .Camera,userId:user?.id)
+            }else{
+              print("camera not available")
+            }
+            
+        case 20:
+            print("gallery")
+            checkIfImagePickerPresent()
+            if(UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary)){
+                chatImagePicker = QChatImageUploader(lSelectedController: self, chatImageDelagate: self, andSelectedSource: .PhotoLibrary,userId:user?.id)
+            }
+            
+        case 30:
+            print("video")
+            
+        case 40:
+            print("voice")
+            
+        default:
+            print("location")
+        }
+        changeAttachmentBgViewConstantToZero()
+    }
+    
+    //Checking if imagepicker is present, if so, make it to nil
+    func checkIfImagePickerPresent(){
+        self.view.endEditing(true)
+        if chatImagePicker != nil{
+            chatImagePicker = nil
+        }
+    }
+    
+    //MARK:- QChatImageUploader Delegate
+    func uploadStatusMessage(status: String){
+        print("chat image upload status:",status)
+    }
+    
+    func changeAttachmentBgViewConstantToZero(){
+    isAttachmentBtnTapped =  isAttachmentBtnTapped ? false : true
+        UIView.animateWithDuration(0.5, delay: 0.1, options: .CurveEaseInOut, animations:
+            {
+                if self.isAttachmentBtnTapped{
+                    self.attachmentBgViewWidth.constant = 320
+                }else{
+                    self.attachmentBgViewWidth.constant = 0
+                }
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+    }
+    
     
     
     //MARK:- Textview Delegate method
@@ -110,11 +175,7 @@ class QMessagesListController: UIViewController,UITextViewDelegate {
                     return
                 }
                 
-                let message = Messages()
-                //potential of crashing if keys don't match
-                message.setValuesForKeysWithDictionary(dictionary)
-                print("Messages:",message.messageText)
-                self.messages.append(message)
+                self.messages.append(Messages(dictionary: dictionary))
                 dispatch_async(dispatch_get_main_queue(),
                     {
                         self.messagesCollectionView?.reloadData()
@@ -152,13 +213,18 @@ extension QMessagesListController:UICollectionViewDataSource,UICollectionViewDel
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
         var cellHeight:CGFloat = 90 //default height specified in storyboard
-        if let messageString = messages[indexPath.item].messageText
+        let chatMessage = messages[indexPath.item]
+        if let messageString = chatMessage.messageText
         {
             cellHeight = QHelper.sharedHelper.calculateCollectionCellHeightForText(messageString).height + 20
         }
-        return CGSize(width: view.frame.width, height: cellHeight)
+        else if  chatMessage.chatImageUrl != nil, let imageWidth = chatMessage.chatImageWidth?.floatValue, imageHeight = chatMessage.chatImageHeight?.floatValue
+        {
+            //For image width and height
+            cellHeight = CGFloat(imageHeight / imageWidth * 200)
+        }
+        return CGSize(width: UIScreen.mainScreen().bounds.width, height: cellHeight)
     }
-    
 }
 
 extension QMessagesListController{
@@ -171,6 +237,10 @@ extension QMessagesListController{
         
         messagesCollectionView.alwaysBounceVertical = true
         messagesCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 5, 0)//Giving space to bottom of collectionview
+        
+        
+       //  NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleKeyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
@@ -183,20 +253,31 @@ extension QMessagesListController{
     }
     
     //Showing keyboard and making the chatbox to move up, when user start interaciton with textfield
+    func handleKeyboardDidShow(notification: NSNotification) {
+       
+    }
+    
     func handleKeyboardWillShow(notification: NSNotification) {
         let keyboardFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue()
         chatViewBottonConstraint?.constant = keyboardFrame!.height
-        UIView.animateWithDuration(0.1) {
+        UIView.animateWithDuration(0.2, delay: 0.2, options: .CurveEaseOut, animations: {
             self.view.layoutIfNeeded()
-        }
+            }, completion: nil)
+        
+        UIView.animateWithDuration(0.5, delay: 0.1, options: .CurveEaseOut, animations: {
+            if self.messages.count > 0 {
+                let indexPath = NSIndexPath(forItem: self.messages.count - 1, inSection: 0)
+                self.messagesCollectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+            }
+            }, completion: nil)
     }
     
     //Moving chatbox down to its original position, once user done with texting. 
     func handleKeyboardWillHide(notification: NSNotification) {
-        chatViewBottonConstraint?.constant = 0
-        UIView.animateWithDuration(0.1) {
+        UIView.animateWithDuration(0.1, delay: 0.1, options: .CurveEaseIn, animations: {
+            self.chatViewBottonConstraint?.constant = 0
             self.view.layoutIfNeeded()
-        }
+            }, completion: nil)
     }
     
     func moveMessageInputTextfieldToOriginalPosition(){

@@ -13,15 +13,22 @@ class Messages: NSObject {
     var receiverId:String?
     var senderId:String?
     var timeStamp:NSNumber?
+    var chatImageUrl:String?
+    var chatImageWidth: NSNumber?
+    var chatImageHeight: NSNumber?
     
     
-//    init(dictionary: [String: AnyObject]) {
-//        super.init()
-//        senderId = dictionary["senderId"] as? String
-//        messageText = dictionary["messageText"] as? String
-//        timeStamp = dictionary["timeStamp"] as? NSNumber
-//        receiverId = dictionary["receiverId"] as? String
-//    }
+    init(dictionary: [String: AnyObject]) {
+        super.init()
+        senderId = dictionary["senderId"] as? String
+        messageText = dictionary["messageText"] as? String
+        timeStamp = dictionary["timeStamp"] as? NSNumber
+        receiverId = dictionary["receiverId"] as? String
+        
+        chatImageUrl = dictionary["chatImageUrl"] as? String
+        chatImageWidth = dictionary["chatImageWidth"] as? NSNumber
+        chatImageHeight = dictionary["chatImageHeight"] as? NSNumber
+    }
     
     
     func checkForFromId()->String?

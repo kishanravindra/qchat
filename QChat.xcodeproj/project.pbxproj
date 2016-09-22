@@ -44,6 +44,7 @@
 		81F534E51D7954C800523F6D /* VideoCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F534E31D7954C800523F6D /* VideoCutter.swift */; };
 		81F534E61D7954C800523F6D /* VideoSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F534E41D7954C800523F6D /* VideoSplashViewController.swift */; };
 		81F904571D8D69CA00C29F50 /* QMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F904561D8D69CA00C29F50 /* QMessageCell.swift */; };
+		81F9045F1D93BF1C00C29F50 /* QChatImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F9045E1D93BF1C00C29F50 /* QChatImageUploader.swift */; };
 		F98F7BC5243961FA9B3E95E6 /* Pods_QChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639C82197CF5282F637A9D20 /* Pods_QChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		81F534E31D7954C800523F6D /* VideoCutter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoCutter.swift; path = Dependency/SplashVideo/VideoCutter.swift; sourceTree = "<group>"; };
 		81F534E41D7954C800523F6D /* VideoSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoSplashViewController.swift; path = Dependency/SplashVideo/VideoSplashViewController.swift; sourceTree = "<group>"; };
 		81F904561D8D69CA00C29F50 /* QMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QMessageCell.swift; path = ViewController/MessageList/QMessageCell.swift; sourceTree = "<group>"; };
+		81F9045E1D93BF1C00C29F50 /* QChatImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QChatImageUploader.swift; path = HelperClass/QChatImageUploader.swift; sourceTree = "<group>"; };
 		B244E6C73BEE4B137976093F /* Pods-QChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QChat/Pods-QChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +241,7 @@
 				81A0E15E1D7D4062006160BF /* QChat-Bridging-Header.h */,
 				81F534B71D79391D00523F6D /* Main.storyboard */,
 				81A0E1551D7B455A006160BF /* Helper Class */,
+				81F904601D93BF2400C29F50 /* ImageUploaderForChat */,
 				813E2A441D8017EC001CDD2A /* Models */,
 				81F534C71D7939B600523F6D /* Controllers */,
 				81F534E81D7954E500523F6D /* Dependency */,
@@ -318,6 +321,14 @@
 				81F534E71D7954CD00523F6D /* SplashVideo */,
 			);
 			name = Dependency;
+			sourceTree = "<group>";
+		};
+		81F904601D93BF2400C29F50 /* ImageUploaderForChat */ = {
+			isa = PBXGroup;
+			children = (
+				81F9045E1D93BF1C00C29F50 /* QChatImageUploader.swift */,
+			);
+			name = ImageUploaderForChat;
 			sourceTree = "<group>";
 		};
 		F159895CEA174EAB06956DD0 /* Frameworks */ = {
@@ -468,6 +479,7 @@
 				813E2A531D894758001CDD2A /* QMessagesListController.swift in Sources */,
 				814417FB1D8AB59100253639 /* Messages.swift in Sources */,
 				813E2A411D801352001CDD2A /* QContactListController.swift in Sources */,
+				81F9045F1D93BF1C00C29F50 /* QChatImageUploader.swift in Sources */,
 				81F534E51D7954C800523F6D /* VideoCutter.swift in Sources */,
 				813E29EB1D7DE282001CDD2A /* QConstant.swift in Sources */,
 				814417F81D8A86B600253639 /* SAMTextView.m in Sources */,

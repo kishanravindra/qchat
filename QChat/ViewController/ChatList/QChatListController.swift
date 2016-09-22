@@ -79,9 +79,9 @@ class QChatListController: UIViewController {
             if let messageChatDict = result.value as? [String: AnyObject]
             {
                 self.starterInfoLabel.hidden = true
-                let messages = Messages()
-                messages.setValuesForKeysWithDictionary(messageChatDict)
-                if let receiverUserId = messages.checkForFromId() {
+                let messages = Messages(dictionary:messageChatDict)
+                if let receiverUserId = messages.checkForFromId()
+                {
                     self.messagesOfIndividualUser[receiverUserId] = messages
                     self.messagesList = Array(self.messagesOfIndividualUser.values)
                     self.messagesList.sortInPlace({ (message1, message2) -> Bool in
