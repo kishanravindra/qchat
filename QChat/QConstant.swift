@@ -16,5 +16,6 @@ let kUser = "users"
 let kMessages = "messages"
 let kUserMessages = "userMessages"
 let kUserImages = "userImages"
+let kUserVideos = "userVideos"
 
 let kTermsAndConditionStatus = "TermsAndCondition"

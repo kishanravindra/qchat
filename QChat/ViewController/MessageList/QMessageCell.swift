@@ -21,6 +21,7 @@ class QMessageCell: UICollectionViewCell{
     
     @IBOutlet weak var outgoingCellViewWidth: NSLayoutConstraint!
     @IBOutlet weak var incomingCellViewWidth: NSLayoutConstraint!
+    var messageListVc:QMessagesListController?
     var widthOfCell:CGFloat?
     var messageChats:Messages?{
         didSet{
@@ -32,7 +33,8 @@ class QMessageCell: UICollectionViewCell{
                outgoingmessageBgView.hidden = false
                profileImage.hidden = true
                outgoingmessageBgView.backgroundColor = UIColor(red: 0.22, green: 0.74, blue: 0.62, alpha: 1)
-               outgoingMessagesLabel.text = messageChats?.messageText
+                outgoingMessagesLabel.text = messageChats?.messageText
+                
                 setWidthConstraintForIncomingOutGoingMessage(outgoingCellViewWidth)
                 displayChatImage(outgoingImage,chatView: outgoingmessageBgView)
             }else{
@@ -44,7 +46,6 @@ class QMessageCell: UICollectionViewCell{
                 incomingMessagesLabel.text = messageChats?.messageText
                 setWidthConstraintForIncomingOutGoingMessage(incomingCellViewWidth)
                 displayChatImage(incomingImage,chatView: incomingmessageBgView)
-
             }
         }
     }
@@ -58,6 +59,8 @@ class QMessageCell: UICollectionViewCell{
         }else{
             chatImageView.hidden = true
         }
+        chatImageView.userInteractionEnabled = true
+        chatImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(zoomSelectedChatImage)))
     }
     
     private func setWidthConstraintForIncomingOutGoingMessage(widthConstraint:NSLayoutConstraint){
@@ -65,6 +68,13 @@ class QMessageCell: UICollectionViewCell{
             widthConstraint.constant = QHelper.sharedHelper.calculateCollectionCellHeightForText(messageText).width + 32
         } else if messageChats?.chatImageUrl != nil{
             widthConstraint.constant = 200 //setting some initial constant width
+        }
+    }
+    
+    func zoomSelectedChatImage(tapGesture:UITapGestureRecognizer){
+        print("tapped image")
+        if let imageView = tapGesture.view as? UIImageView {
+            self.messageListVc?.startZoomingChatMessageImageView(imageView)
         }
     }
 }

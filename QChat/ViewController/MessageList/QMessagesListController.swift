@@ -29,6 +29,9 @@ class QMessagesListController: UIViewController,UITextViewDelegate,chatImagePick
     var messages = [Messages]()
     var isAttachmentBtnTapped = false
     var chatImagePicker: QChatImageUploader?
+    var imageStartingFrame:CGRect?
+    var zoomBackgroundView:UIView?
+    var chatImageZoomView: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,13 +107,12 @@ class QMessagesListController: UIViewController,UITextViewDelegate,chatImagePick
         case 20:
             print("gallery")
             checkIfImagePickerPresent()
-            if(UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary)){
-                chatImagePicker = QChatImageUploader(lSelectedController: self, chatImageDelagate: self, andSelectedSource: .PhotoLibrary,userId:user?.id)
-            }
+            openPhotoLibrary()
             
         case 30:
             print("video")
-            
+            checkIfImagePickerPresent()
+            openPhotoLibrary()
         case 40:
             print("voice")
             
@@ -125,6 +127,13 @@ class QMessagesListController: UIViewController,UITextViewDelegate,chatImagePick
         self.view.endEditing(true)
         if chatImagePicker != nil{
             chatImagePicker = nil
+        }
+    }
+    
+    //Opening photo library to select image and video
+    func openPhotoLibrary(){
+        if(UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary)){
+            chatImagePicker = QChatImageUploader(lSelectedController: self, chatImageDelagate: self, andSelectedSource: .PhotoLibrary,userId:user?.id)
         }
     }
     
@@ -191,7 +200,7 @@ class QMessagesListController: UIViewController,UITextViewDelegate,chatImagePick
 
 }
 
-
+//MARK:- UICOllectionViewDelegate Method
 extension QMessagesListController:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -201,6 +210,8 @@ extension QMessagesListController:UICollectionViewDataSource,UICollectionViewDel
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! QMessageCell
         let messageData = messages[indexPath.item]
+        //Getting access QMessageListVc in QMessageCell
+        cell.messageListVc = self
         if let image = user?.profileImageUrl{
             cell.profileImage.loadImageUsingCacheWithUrlString(image)
         }
@@ -225,6 +236,57 @@ extension QMessagesListController:UICollectionViewDataSource,UICollectionViewDel
         }
         return CGSize(width: UIScreen.mainScreen().bounds.width, height: cellHeight)
     }
+    
+    //MARK:- zoom the imageview - called from QMessageCell
+    //In this method we will zoom the imageview, to see image clearly.
+    func startZoomingChatMessageImageView(imageToZoom:UIImageView){
+        chatImageZoomView? = imageToZoom
+        chatImageZoomView?.hidden = true
+        
+        imageStartingFrame = imageToZoom.superview?.convertRect(imageToZoom.frame, toView: nil) //this will give us a image postion and size
+        print(imageStartingFrame)
+        
+        //creating another imageview and place it on top of original image, which is suppose to be zoomed.
+        let zoomImageView = UIImageView(frame: imageStartingFrame!)
+        zoomImageView.image = imageToZoom.image
+        zoomImageView.userInteractionEnabled = true
+        zoomImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(zoomOutImageView)))
+        
+        if let viewWindow = UIApplication.sharedApplication().keyWindow{
+            
+            zoomBackgroundView = UIView(frame: viewWindow.frame)
+            zoomBackgroundView?.backgroundColor = .blackColor()
+            zoomBackgroundView?.alpha = 0
+            viewWindow.addSubview(zoomBackgroundView!)
+            viewWindow.addSubview(zoomImageView)
+            
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: { 
+                self.zoomBackgroundView?.alpha = 1
+                //we know height and width of image to be zoomed and we know width of image after it zoomed. so we need to calculate only of height of zoomed image.
+                let zoomImageHeight  = self.imageStartingFrame!.height / self.imageStartingFrame!.width * viewWindow.frame.width
+                
+                zoomImageView.frame = CGRect(x: 0, y:0, width: viewWindow.frame.width, height: zoomImageHeight)
+                zoomImageView.center = viewWindow.center
+                }, completion: nil)
+        }
+    }
+    
+    //MARK:- zooming out the imageview, back its original position
+    func zoomOutImageView(tapGesture:UITapGestureRecognizer){
+        if let zoomOutImage = tapGesture.view as? UIImageView
+        {
+            zoomOutImage.layer.cornerRadius =  12
+            zoomOutImage.clipsToBounds = true
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
+                zoomOutImage.frame = self.imageStartingFrame!
+                self.zoomBackgroundView?.alpha = 0
+                
+                }, completion: { (completed) in
+                    zoomOutImage.removeFromSuperview()
+                    self.chatImageZoomView?.hidden = false
+            })
+        }
+    }
 }
 
 extension QMessagesListController{
@@ -237,9 +299,6 @@ extension QMessagesListController{
         
         messagesCollectionView.alwaysBounceVertical = true
         messagesCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 5, 0)//Giving space to bottom of collectionview
-        
-        
-       //  NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleKeyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
         
