@@ -561,6 +561,22 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mja-1e-73E">
+                                                            <rect key="frame" x="82" y="26" width="37" height="37"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="37" id="Qhl-eJ-3TO"/>
+                                                                <constraint firstAttribute="width" constant="37" id="jOJ-XU-dW9"/>
+                                                            </constraints>
+                                                        </activityIndicatorView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLJ-zK-Ck6" userLabel="OutgoingPlayBtn">
+                                                            <rect key="frame" x="75" y="20" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="AG7-cY-6tA"/>
+                                                                <constraint firstAttribute="width" secondItem="fLJ-zK-Ck6" secondAttribute="height" multiplier="1:1" id="ahV-XN-JG9"/>
+                                                                <constraint firstAttribute="height" constant="50" id="kqn-zT-9hw"/>
+                                                            </constraints>
+                                                            <state key="normal" image="play"/>
+                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLf-Mt-418">
                                                             <rect key="frame" x="10" y="0.0" width="188" height="90"/>
                                                             <fontDescription key="fontDescription" name="TitilliumWeb-Regular" family="Titillium Web" pointSize="15"/>
@@ -574,8 +590,12 @@
                                                         <constraint firstAttribute="bottom" secondItem="zWu-zU-ukI" secondAttribute="bottom" id="A06-Sc-tbT"/>
                                                         <constraint firstItem="zWu-zU-ukI" firstAttribute="leading" secondItem="ZhW-xk-GF3" secondAttribute="leading" id="CrP-Lg-czd"/>
                                                         <constraint firstItem="BLf-Mt-418" firstAttribute="leading" secondItem="ZhW-xk-GF3" secondAttribute="leading" constant="10" id="Fq0-rO-AYc"/>
+                                                        <constraint firstItem="fLJ-zK-Ck6" firstAttribute="centerY" secondItem="ZhW-xk-GF3" secondAttribute="centerY" id="Kcz-MV-J77"/>
                                                         <constraint firstAttribute="trailing" secondItem="BLf-Mt-418" secondAttribute="trailing" constant="2" id="S7Z-up-aQT"/>
+                                                        <constraint firstItem="mja-1e-73E" firstAttribute="centerX" secondItem="ZhW-xk-GF3" secondAttribute="centerX" id="Tvw-a3-4lQ"/>
                                                         <constraint firstItem="zWu-zU-ukI" firstAttribute="top" secondItem="ZhW-xk-GF3" secondAttribute="top" id="XZa-bV-Anl"/>
+                                                        <constraint firstItem="mja-1e-73E" firstAttribute="centerY" secondItem="ZhW-xk-GF3" secondAttribute="centerY" id="YbM-5v-kmU"/>
+                                                        <constraint firstItem="fLJ-zK-Ck6" firstAttribute="centerX" secondItem="ZhW-xk-GF3" secondAttribute="centerX" id="Z1B-9q-haD"/>
                                                         <constraint firstItem="BLf-Mt-418" firstAttribute="top" secondItem="ZhW-xk-GF3" secondAttribute="top" id="btE-g7-Auj"/>
                                                         <constraint firstAttribute="bottom" secondItem="BLf-Mt-418" secondAttribute="bottom" id="nt3-WA-OEq"/>
                                                         <constraint firstAttribute="height" constant="90" id="pfW-kQ-kv4"/>
@@ -622,18 +642,38 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="khq-GJ-fg7">
+                                                            <rect key="frame" x="82" y="26" width="37" height="37"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="37" id="FTQ-Y8-VSv"/>
+                                                                <constraint firstAttribute="width" constant="37" id="n07-vY-e4N"/>
+                                                            </constraints>
+                                                        </activityIndicatorView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oy9-YU-jJj" userLabel="IncomingPlayBtn">
+                                                            <rect key="frame" x="75" y="20" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="3kF-Pp-mtb"/>
+                                                                <constraint firstAttribute="width" constant="50" id="glh-UK-cdp"/>
+                                                                <constraint firstAttribute="width" secondItem="oy9-YU-jJj" secondAttribute="height" multiplier="1:1" id="z1B-jq-8xp"/>
+                                                            </constraints>
+                                                            <state key="normal" image="play"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="CcQ-AB-1sg" firstAttribute="leading" secondItem="Bov-qW-6GR" secondAttribute="leading" constant="10" id="6sh-2m-8rm"/>
                                                         <constraint firstAttribute="trailing" secondItem="CcQ-AB-1sg" secondAttribute="trailing" constant="2" id="7t5-1H-3Do"/>
+                                                        <constraint firstItem="oy9-YU-jJj" firstAttribute="centerY" secondItem="Bov-qW-6GR" secondAttribute="centerY" id="FUL-9e-6L7"/>
+                                                        <constraint firstItem="khq-GJ-fg7" firstAttribute="centerX" secondItem="UEc-78-Tb3" secondAttribute="centerX" id="Fb3-oJ-ZNp"/>
                                                         <constraint firstAttribute="width" constant="200" id="Ld2-yX-Z4j"/>
                                                         <constraint firstItem="UEc-78-Tb3" firstAttribute="top" secondItem="Bov-qW-6GR" secondAttribute="top" id="SRv-zn-UEo"/>
                                                         <constraint firstAttribute="bottom" secondItem="UEc-78-Tb3" secondAttribute="bottom" id="aud-9c-NS8"/>
                                                         <constraint firstAttribute="trailing" secondItem="UEc-78-Tb3" secondAttribute="trailing" id="kPo-Lj-oCQ"/>
                                                         <constraint firstItem="UEc-78-Tb3" firstAttribute="leading" secondItem="Bov-qW-6GR" secondAttribute="leading" id="mBl-QV-8RL"/>
                                                         <constraint firstAttribute="bottom" secondItem="CcQ-AB-1sg" secondAttribute="bottom" id="n5Y-QA-p4g"/>
+                                                        <constraint firstItem="khq-GJ-fg7" firstAttribute="centerY" secondItem="UEc-78-Tb3" secondAttribute="centerY" id="oIX-O0-ZMt"/>
                                                         <constraint firstItem="CcQ-AB-1sg" firstAttribute="top" secondItem="Bov-qW-6GR" secondAttribute="top" id="vup-QR-6ZH"/>
+                                                        <constraint firstItem="oy9-YU-jJj" firstAttribute="centerX" secondItem="Bov-qW-6GR" secondAttribute="centerX" id="w5Y-g9-Mn1"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -657,13 +697,17 @@
                                         </constraints>
                                         <size key="customSize" width="375" height="90"/>
                                         <connections>
+                                            <outlet property="incomingActivityIndicator" destination="khq-GJ-fg7" id="Hst-99-ruC"/>
                                             <outlet property="incomingCellViewWidth" destination="Ld2-yX-Z4j" id="DgF-w7-xvu"/>
                                             <outlet property="incomingImage" destination="UEc-78-Tb3" id="Waz-4U-NiP"/>
                                             <outlet property="incomingMessagesLabel" destination="CcQ-AB-1sg" id="qQW-TT-4o5"/>
+                                            <outlet property="incomingPlayBtn" destination="oy9-YU-jJj" id="hPf-Ps-IU2"/>
                                             <outlet property="incomingmessageBgView" destination="Bov-qW-6GR" id="sga-Px-jb4"/>
+                                            <outlet property="outgoingActivityIndicator" destination="mja-1e-73E" id="IMX-U0-ZpS"/>
                                             <outlet property="outgoingCellViewWidth" destination="rie-YJ-iQD" id="m1A-ND-TEE"/>
                                             <outlet property="outgoingImage" destination="zWu-zU-ukI" id="4dy-lJ-tbC"/>
                                             <outlet property="outgoingMessagesLabel" destination="BLf-Mt-418" id="qWN-sk-JMB"/>
+                                            <outlet property="outgoingPlayBtn" destination="fLJ-zK-Ck6" id="Utp-5A-d9x"/>
                                             <outlet property="outgoingmessageBgView" destination="ZhW-xk-GF3" id="M3v-ZO-3y8"/>
                                             <outlet property="profileImage" destination="yL2-Vr-AoH" id="ABM-cG-0qN"/>
                                         </connections>
@@ -1248,6 +1292,7 @@
         <image name="logo_icon" width="77" height="71"/>
         <image name="logo_white" width="60" height="60"/>
         <image name="menu" width="30" height="30"/>
+        <image name="play" width="50" height="50"/>
         <image name="qwinix-logo" width="72" height="71"/>
         <image name="rounded_edge_btn" width="320" height="50"/>
         <image name="search" width="50" height="50"/>

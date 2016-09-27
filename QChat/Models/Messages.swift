@@ -16,6 +16,7 @@ class Messages: NSObject {
     var chatImageUrl:String?
     var chatImageWidth: NSNumber?
     var chatImageHeight: NSNumber?
+    var videoUrl:String?
     
     
     init(dictionary: [String: AnyObject]) {
@@ -28,6 +29,7 @@ class Messages: NSObject {
         chatImageUrl = dictionary["chatImageUrl"] as? String
         chatImageWidth = dictionary["chatImageWidth"] as? NSNumber
         chatImageHeight = dictionary["chatImageHeight"] as? NSNumber
+        videoUrl = dictionary["videoUrl"] as? String
     }
     
     
